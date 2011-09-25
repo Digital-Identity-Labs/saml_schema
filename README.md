@@ -9,7 +9,7 @@ The files are presented here as a convenience for both DIL and others, especiall
 as a source for integrating into other projects using Git and Github.
 
 ## DERIVATION
-The official source of SAML protocol documentation and schemas is here:
+The official source of SAML protocol documentation and schema files is here:
 
   http://docs.oasis-open.org/security/saml/v2.0/
   
@@ -24,12 +24,16 @@ this repository: use the official files.
 As few as possible! Any significant changes to the schema will break compatibility
 with the official SAML protocol and cause no end of problems. 
 
-* Schema have been tweaked by InCommon to work when accessed on a local filesystem,
+* Schema files have been tweaked by InCommon to work when accessed on a local filesystem,
 rather than over the Internet. This makes processes such as verifying SAML metadata
 much faster and much more resilient.
 * The X509SerialNumber type has been changed to work around a problem caused by
 some Certificate Authorities issuing certificates with huge random serial numbers
 that exceed the capacity of some some schema validation software.
+
+We plan to add some simple RSpec tests to reassure us that the tweaked files
+are still fit for purpose (focusing on Shibboleth configuration files and
+ SAML2 metadata).
 
 ### Adaption for offline use
 
@@ -62,7 +66,6 @@ We've followed the advice on resolving this issue from W3C:
 > schema-validating the X509IssuerSerial element, or make use of a
 > local copy of the schema that adjusts the data type of the
 > X509SerialNumber child element from "integer" to "string".
-
 
 
 ## CONTRIBUTORS
